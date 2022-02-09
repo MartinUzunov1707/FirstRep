@@ -1,0 +1,149 @@
+30.01.2022
+zad1
+string type = Console.ReadLine();
+            switch (type) 
+            {
+                case "int": 
+                    Console.WriteLine(int.MaxValue);
+                    Console.WriteLine(int.MinValue);
+                    break;
+                case "uint":
+                    Console.WriteLine(uint.MaxValue);
+                    Console.WriteLine(uint.MinValue);
+                    break;
+                case "long":
+                    Console.WriteLine(long.MaxValue);
+                    Console.WriteLine(long.MinValue);
+                    break;
+                case "byte":
+                    Console.WriteLine(byte.MaxValue);
+                    Console.WriteLine(byte.MinValue);
+                    break;
+                case "sbyte":
+                    Console.WriteLine(sbyte.MaxValue);
+                    Console.WriteLine(sbyte.MinValue);
+                    break;
+            }
+zad2:
+ string srs = Console.ReadLine();
+            bool ifInt = long.TryParse(srs, out long num);
+            bool iffloat = float.TryParse(srs, out float num1);
+            if (ifInt) Console.WriteLine("integer");
+            else if (iffloat) Console.WriteLine("floating-point");
+zad3:
+byte n = byte.Parse(Console.ReadLine());
+            int sbor = 0;
+            int sbor1 = 0;
+            int read = 0;
+            for(int i = 0; i < n; i++) 
+            {               
+                if (sbor > 255) 
+                {
+                    sbor1 += read;
+                    Console.WriteLine("Insufficient capacity!");
+                    read = int.Parse(Console.ReadLine());
+                    sbor += read;
+                    sbor1 += read;
+                    read = 0;
+                }
+                else
+                {
+                    read = int.Parse(Console.ReadLine());
+                    sbor += read;
+                }
+            }
+            sbor -= sbor1;
+            Console.WriteLine($"{sbor}");
+zad4:
+string imp = Console.ReadLine();
+            double st = double.Parse(Console.ReadLine());
+            if (imp=="miles")
+            {
+                double kmst = st * 1.6;
+                Console.WriteLine($"{st} {imp} = {kmst:f2} kilometers");
+            }
+            if (imp=="inches")
+            {
+                double cmst = st * 2.54;
+                Console.WriteLine($"{st} {imp} = {cmst:f2} centimeters");
+            }
+            if (imp=="feet")
+            {
+                double ftst = st * 30;
+                Console.WriteLine($"{st} {imp} = {ftst:f2} centimeters");
+            }
+            if (imp=="yards")
+            {
+                double yrdst = st * 0.91;
+                Console.WriteLine($"{st} {imp} = {yrdst:f2} meters");
+            }
+            if (imp=="gallons")
+            {
+                double galst = st * 3.8;
+                Console.WriteLine($"{st} {imp} = {galst:f2} liters");
+            }
+zad5:
+using System;
+
+namespace BabaTonchevaIskaZadachiOt8klas
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string srs = Console.ReadLine();
+            bool IfSbyte = sbyte.TryParse(srs, out sbyte s1);
+            bool ifInt = int.TryParse(srs, out int s2);
+            bool ifLong = long.TryParse(srs, out long s3);
+            bool ifDouble = double.TryParse(srs, out double s4);
+            if (IfSbyte) Console.WriteLine("Sunny");
+            else if (ifInt) Console.WriteLine("Cloudy");
+            else if (ifLong) Console.WriteLine("Windy");
+            else if (ifDouble) Console.WriteLine("Rainy");
+
+        }
+    }
+}
+zad6:
+string type = Console.ReadLine().ToLower();
+            int n = int.Parse(Console.ReadLine());
+            long c = long.MinValue;
+            if (n >= 1 && n <= 20)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    long a = long.Parse(Console.ReadLine());
+                    switch (type)
+                    {
+                        case "sbyte":
+                            if (a >= sbyte.MinValue && a <= sbyte.MaxValue)
+                            {
+                                if (a > c)
+                                {
+                                    c = a;
+                                }
+                            }
+                            break;
+                        case "int":
+                            if (a >= int.MinValue && a <= int.MaxValue)
+                            {
+                                if (a > c)
+                                {
+                                    c = a;
+                                }
+                            }
+                            break;
+                        case "long":
+                            if (a >= long.MinValue && a <= long.MaxValue)
+                            {
+                                if (a > c)
+                                {
+                                    c = a;
+                                }
+                            }
+                            break;
+                    }
+                }
+            }
+            Console.WriteLine(c);
+
